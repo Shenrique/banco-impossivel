@@ -9,6 +9,9 @@ spring:
     open-in-view: false
     hibernate:
       ddl-auto: validate
+  mvc:
+    problemdetails:
+      enabled: true
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     producer:
@@ -23,7 +26,14 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: br.com.bancoimpossivel
+        spring.json.trusted.packages: br.com.bancoimpossivel.*
+    listener:
+      missing-topics-fatal: true
+
+banco:
+  kafka:
+    topicos:
+      transferencias: ${KAFKA_TOPICO_TRANSFERENCIAS:transferencias.solicitadas}
 
 management:
   endpoints:
