@@ -20,6 +20,7 @@ spring:
       acks: all
       properties:
         enable.idempotence: true
+        spring.json.add.type.headers: false
     consumer:
       group-id: banco-impossivel
       auto-offset-reset: earliest
@@ -27,6 +28,7 @@ spring:
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: br.com.bancoimpossivel.*
+        spring.json.use.type.headers: false
     listener:
       missing-topics-fatal: true
 
@@ -42,4 +44,4 @@ management:
         include: health,info
   endpoint:
     health:
-      show-details: always   # ok em dev; restringir na F2 (Seguranca)
+      show-details: always   #Ok por enquanto em dev
