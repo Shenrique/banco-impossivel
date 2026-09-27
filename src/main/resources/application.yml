@@ -5,6 +5,25 @@ spring:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/banco}
     username: ${DB_USER:banco}
     password: ${DB_PASSWORD:banco}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      acks: all
+      properties:
+        enable.idempotence: true
+    consumer:
+      group-id: banco-impossivel
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: br.com.bancoimpossivel
 
 management:
   endpoints:
