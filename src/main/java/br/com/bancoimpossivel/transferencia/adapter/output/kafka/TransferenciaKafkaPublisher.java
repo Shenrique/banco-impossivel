@@ -31,9 +31,10 @@ public class TransferenciaKafkaPublisher implements PublicarTransferenciaPort {
 
     @Override
     public void publicar(TransferenciaSolicitada evento) {
-        var topico = topicos.transferencias();
-        var chave = evento.contaOrigem();
-        var mensagem = TransferenciaMensagem.de(evento);
+
+        String topico = topicos.transferencias();
+        String chave = evento.contaOrigem();
+        TransferenciaMensagem mensagem = TransferenciaMensagem.de(evento);
 
         log.info("Publicando no tópico '{}' | chave={} | idEvento={} | origem={} | destino={} | valor={} | dataSolicitacao={}",
                 topico, chave, mensagem.idEvento(), mensagem.contaOrigem(),
