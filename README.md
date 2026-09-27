@@ -52,3 +52,7 @@ Os testes sobem um PostgreSQL real via Testcontainers (é preciso ter o Docker r
 ## Decisões de arquitetura
 
 As decisões ficam em [`docs/adr`](docs/adr). Comece pela [ADR-0001](docs/adr/0001-monolito-modular.md).
+
+## Problemas comuns
+
+- **`db` DOWN com "autenticação falhou para o usuário banco"**: há outro PostgreSQL usando a porta 5432 (ex.: instalado no Windows). Pare o serviço local ou mude a porta no `docker-compose.yml`.
