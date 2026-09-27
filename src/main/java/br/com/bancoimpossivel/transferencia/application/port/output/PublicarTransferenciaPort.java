@@ -1,4 +1,8 @@
-package br.com.bancoimpossivel.application.port.output;
+package br.com.bancoimpossivel.transferencia.application.port.output;
 
-public class PublicarTransferenciaPort {
+import br.com.bancoimpossivel.transferencia.domain.TransferenciaSolicitada;
+
+public interface PublicarTransferenciaPort {
+
+    void publicar(TransferenciaSolicitada evento);
 }

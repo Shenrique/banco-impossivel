@@ -1,5 +1,4 @@
-
-import br.com.bancoimpossivel.application.port.input.SolicitarTransferenciaCommand;
+package br.com.bancoimpossivel.transferencia.application.port.input;
 
 import java.util.UUID;
 

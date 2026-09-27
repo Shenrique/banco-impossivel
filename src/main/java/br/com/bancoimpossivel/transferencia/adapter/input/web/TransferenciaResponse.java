@@ -1,4 +1,6 @@
 package br.com.bancoimpossivel.transferencia.adapter.input.web;
 
-public class TransferenciaResponse {
+import java.util.UUID;
+
+public record TransferenciaResponse(UUID idEvento) {
 }

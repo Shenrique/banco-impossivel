@@ -1,4 +1,4 @@
-package br.com.bancoimpossivel.adapter.output.kafka;
+package br.com.bancoimpossivel.transferencia.adapter.output.kafka;
 
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.boot.context.properties.ConfigurationProperties;

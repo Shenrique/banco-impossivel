@@ -1,4 +1,4 @@
-package br.com.bancoimpossivel.adapter.output.kafka;
+package br.com.bancoimpossivel.transferencia.adapter.output.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package br.com.bancoimpossivel.application.port.input;
+package br.com.bancoimpossivel.transferencia.application.port.input;
 
 import java.math.BigDecimal;
 

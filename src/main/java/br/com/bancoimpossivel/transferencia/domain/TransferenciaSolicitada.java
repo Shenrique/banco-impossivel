@@ -1,6 +1,7 @@
-package br.com.bancoimpossivel.transferencia;
+package br.com.bancoimpossivel.transferencia.domain;
 
 import java.math.BigDecimal;
+import java.time.Clock;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
@@ -33,5 +34,17 @@ public record TransferenciaSolicitada(UUID idEvento,
         if (contaOrigem.equals(contaDestino)) {
             throw new IllegalArgumentException("contaOrigem e contaDestino devem ser diferentes");
         }
+    }
+
+    public static TransferenciaSolicitada nova(String contaOrigem,
+                                               String contaDestino,
+                                               BigDecimal valor,
+                                               Clock clock) {
+        return new TransferenciaSolicitada(
+                UUID.randomUUID(),
+                contaOrigem,
+                contaDestino,
+                valor,
+                Instant.now(clock));
     }
 }
